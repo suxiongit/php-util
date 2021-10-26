@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class Number
+class Num
 {
     /**
      * 拆分2的次方（幂）
@@ -14,13 +14,14 @@ class Number
      * @param $num
      * @return array
      */
-    public static function splitPow($num): array {
+    public static function splitPow($num): array
+    {
         $bin = str_split(decbin($num)); // 把十进制转二进制，后分割成数组
         $pow = [];
-        for ($i = 0, $j = 0, $n = count($bin); $i < $n; $i ++) {
+        for ($i = 0, $j = 0, $n = count($bin); $i < $n; $i++) {
             if ($bin[$i] <= 0) continue;
             $pow[$j] = pow(2, $n - $i - 1);
-            $j ++;
+            $j++;
         }
         return $pow;
     }
